@@ -1,0 +1,62 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<script>document.documentElement.classList.add('js')</script>
+<title>Net-Zero Sprinter — Master&#x27;s Thesis — Keith Christman</title>
+<meta name="description" content="A net-zero energy system designed, fabricated, and installed on a Sprinter van — then modeled so it can predict interior temperature from the weather forecast.">
+<link rel="icon" href="../favicon.svg" type="image/svg+xml">
+<meta property="og:title" content="Net-Zero Sprinter — Master&#x27;s Thesis — Keith Christman">
+<meta property="og:description" content="A net-zero energy system designed, fabricated, and installed on a Sprinter van — then modeled so it can predict interior temperature from the weather forecast.">
+<meta property="og:type" content="website">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Archivo:wght@500;600;700;800&family=IBM+Plex+Mono:wght@400;500;600&family=IBM+Plex+Sans:wght@400;500;600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="../css/style.css">
+</head>
+<body>
+<header class="nav"><div class="wrap">
+  <a class="brand" href="../index.html">
+    <span class="mark">KC</span>
+    <span class="who">Keith Christman · Engineering</span>
+  </a>
+  <nav class="nav-links">
+    <a href="../index.html#work" aria-current="page">Work</a>
+    <a href="../about.html">About</a>
+    <a href="mailto:keithschristman@gmail.com">Contact</a>
+  </nav>
+</div></header>
+<main>
+  <div class="wrap">
+    <div class="crumb"><a href="../index.html#work">← All Work</a></div>
+    <section class="phead">
+      <span class="tag"><span class="n">06</span> / Mechanical &amp; Mechatronics Engineer</span>
+      <h1>Net-Zero Sprinter — Master&#x27;s Thesis</h1>
+      <p class="lede">My master&#x27;s thesis: design, fabricate, and implement a net-zero energy platform for a mobile residence — and then build the thermal and electrical model that lets it make decisions about its own energy use.</p>
+      <div class="statrow"><span class="chip">260 Ah LiFePO4</span><span class="chip">550 W SOLAR</span><span class="chip">MATLAB MODEL</span><span class="chip">PREDICTIVE CONTROL</span></div>
+      <a class="dl" href="../docs/net-zero-sprinter-thesis.pdf" target="_blank" rel="noopener"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 3v12m0 0l-4-4m4 4l4-4M4 21h16"/></svg>Read the thesis (PDF)</a>
+    </section>
+    <div class="prose reveal"><p>The hardware is a complete off-grid energy system on a Sprinter van: two 275&nbsp;W Canadian Solar panels on MIG-welded steel mounting frames, a Victron SmartSolar MPPT charge controller, a <strong>260&nbsp;Ah LiFePO4</strong> battery, a 2,000&nbsp;W inverter, and a custom electrical containment box housing the battery management, disconnects, and load lines. The goal was a self-sufficient platform for off-grid living and exploring.</p></div><div class="figs two"><figure class="fig cover reveal"><div class="imgwrap"><img src="../images/van-build/img_20190921_190736.webp" alt="The platform — a Sprinter built to run net-zero." loading="lazy" data-full="../images/van-build/img_20190921_190736.webp"></div><figcaption><span class="fn">FIG&nbsp;01</span>The platform — a Sprinter built to run net-zero.</figcaption></figure><figure class="fig cover reveal"><div class="imgwrap"><img src="../images/van-build/6.webp" alt="Solar panels mounted to the roof." loading="lazy" data-full="../images/van-build/6.webp"></div><figcaption><span class="fn">FIG&nbsp;02</span>Solar panels mounted to the roof.</figcaption></figure></div><div class="sub"><div class="dim ticked"><span class="lab">Electrical System</span></div></div><div class="figs three"><figure class="fig cover reveal"><div class="imgwrap"><img src="../images/van-build/1.webp" alt="Charge-controller board (LTC4015-based design exploration)." loading="lazy" data-full="../images/van-build/1.webp"></div><figcaption><span class="fn">FIG&nbsp;03</span>Charge-controller board (LTC4015-based design exploration).</figcaption></figure><figure class="fig reveal"><div class="imgwrap"><img src="../images/van-build/3.webp" alt="Charge controller install and electrical containment box." loading="lazy" data-full="../images/van-build/3.webp"></div><figcaption><span class="fn">FIG&nbsp;04</span>Charge controller install and electrical containment box.</figcaption></figure><figure class="fig cover reveal"><div class="imgwrap"><img src="../images/van-build/4.webp" alt="Fabricating the steel solar-panel mounting frames." loading="lazy" data-full="../images/van-build/4.webp"></div><figcaption><span class="fn">FIG&nbsp;05</span>Fabricating the steel solar-panel mounting frames.</figcaption></figure></div><div class="sub"><div class="dim ticked"><span class="lab">Thermal + Electrical Model</span></div></div><div class="prose reveal"><p>The second half of the thesis is a model. Using acquired thermal data, I built a thermal and electrical model of the van in MATLAB that predicts interior temperature from forecasted conditions, and tells the user how a desired set-point temperature will affect how long the system's stored solar energy lasts. It closes the loop from <strong>weather forecast → thermal response → battery state of charge</strong>, so the platform can inform real energy-use decisions.</p></div><div class="figs two"><figure class="fig reveal"><div class="imgwrap"><img src="../images/van-build/matlab2.webp" alt="Set-point temperature prediction from forecast and battery state." loading="lazy" data-full="../images/van-build/matlab2.webp"></div><figcaption><span class="fn">FIG&nbsp;06</span>Set-point temperature prediction from forecast and battery state.</figcaption></figure><figure class="fig cover reveal"><div class="imgwrap"><img src="../images/van-build/thermal.webp" alt="Thermal-model data acquisition at the bench." loading="lazy" data-full="../images/van-build/thermal.webp"></div><figcaption><span class="fn">FIG&nbsp;07</span>Thermal-model data acquisition at the bench.</figcaption></figure></div><div class="sub"><div class="dim ticked"><span class="lab">Living In It</span></div></div><div class="figs three"><figure class="fig cover reveal"><div class="imgwrap"><img src="../images/van-build/img_20200412_185658.webp" alt="Interior — sleeping platform." loading="lazy" data-full="../images/van-build/img_20200412_185658.webp"></div><figcaption><span class="fn">FIG&nbsp;08</span>Interior — sleeping platform.</figcaption></figure><figure class="fig cover reveal"><div class="imgwrap"><img src="../images/van-build/img_20200412_185750.webp" alt="Interior — galley." loading="lazy" data-full="../images/van-build/img_20200412_185750.webp"></div><figcaption><span class="fn">FIG&nbsp;09</span>Interior — galley.</figcaption></figure><figure class="fig cover reveal"><div class="imgwrap"><img src="../images/van-build/img_20200412_185459.webp" alt="Loaded up and ready." loading="lazy" data-full="../images/van-build/img_20200412_185459.webp"></div><figcaption><span class="fn">FIG&nbsp;10</span>Loaded up and ready.</figcaption></figure></div>
+    <nav class="pnav"><a class="prev" href="digital-products.html"><span class="d">← Prev</span>Digital Products &amp; Research</a></nav>
+  </div>
+</main>
+<footer><div class="wrap">
+  <div>
+    <div class="who">Keith Christman</div>
+    <div class="meta">Mechanical &amp; Mechatronics Engineer</div>
+  </div>
+  <nav class="links">
+    <a href="../index.html#work">Work</a>
+    <a href="../about.html">About</a>
+    <a href="mailto:keithschristman@gmail.com">Email</a>
+    <a href="https://www.linkedin.com/in/keith-christman-300a68103">LinkedIn</a>
+  </nav>
+  <div class="meta">© <span id="yr"></span> Keith Christman</div>
+</div></footer>
+<div class="lb" id="lb" role="dialog" aria-modal="true" aria-label="Image viewer">
+  <button class="x" id="lbx" aria-label="Close">CLOSE ✕</button>
+  <img id="lbimg" alt="">
+</div>
+<script src="../js/main.js"></script>
+</body></html>

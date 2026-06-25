@@ -1,0 +1,62 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<script>document.documentElement.classList.add('js')</script>
+<title>Digital Products &amp; Research — Keith Christman</title>
+<meta name="description" content="A physics model plus a computer-vision system that, together, redefine what an &#x27;ideal&#x27; suspension setup is — and measure it from a single GoPro.">
+<link rel="icon" href="../favicon.svg" type="image/svg+xml">
+<meta property="og:title" content="Digital Products &amp; Research — Keith Christman">
+<meta property="og:description" content="A physics model plus a computer-vision system that, together, redefine what an &#x27;ideal&#x27; suspension setup is — and measure it from a single GoPro.">
+<meta property="og:type" content="website">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Archivo:wght@500;600;700;800&family=IBM+Plex+Mono:wght@400;500;600&family=IBM+Plex+Sans:wght@400;500;600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="../css/style.css">
+</head>
+<body>
+<header class="nav"><div class="wrap">
+  <a class="brand" href="../index.html">
+    <span class="mark">KC</span>
+    <span class="who">Keith Christman · Engineering</span>
+  </a>
+  <nav class="nav-links">
+    <a href="../index.html#work" aria-current="page">Work</a>
+    <a href="../about.html">About</a>
+    <a href="mailto:keithschristman@gmail.com">Contact</a>
+  </nav>
+</div></header>
+<main>
+  <div class="wrap">
+    <div class="crumb"><a href="../index.html#work">← All Work</a></div>
+    <section class="phead">
+      <span class="tag"><span class="n">05</span> / Mechanical &amp; Mechatronics Engineer</span>
+      <h1>Digital Products &amp; Research</h1>
+      <p class="lede">The most ambitious thread in my work: turning suspension setup from opinion into something you can define, measure, and reproduce. It pairs a mechanical model of the bike with an AI vision system that reads the rider — and the two together produced a result I believe is new to the industry.</p>
+      <div class="statrow"><span class="chip">SDOF MODEL</span><span class="chip">COMPUTER VISION</span><span class="chip">RANDOM FOREST R²≈0.9</span><span class="chip">ASME PAPER</span></div>
+      <a class="dl" href="../docs/suspension-setup-white-paper.pdf" target="_blank" rel="noopener"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 3v12m0 0l-4-4m4 4l4-4M4 21h16"/></svg>Read the white paper (PDF)</a>
+    </section>
+    <div class="prose reveal"><p>For decades, setting up a mountain bike's suspension has been guided by sag charts and feel — an opinion rather than an informed decision. This project set out to answer what an ideal setup actually <em>is</em>, and why ideal varies so much from rider to rider.</p><p>I built two things. The first is a software model that simulates how any fork and shock behaves on any bike for any rider — how firm it is, how quickly it settles, and how well front and rear are matched. The second is a measurement system built around a <strong>GoPro and a pose-tracking AI</strong> that determines, frame by frame, a rider's weight distribution and center of gravity while they ride.</p></div><div class="figs two"><figure class="fig reveal"><div class="imgwrap"><img src="../images/digital-products/cv-pose-tracking.webp" alt="Pose-tracking pipeline: torso landmarks become five metrics fed to the model." loading="lazy" data-full="../images/digital-products/cv-pose-tracking.webp"></div><figcaption><span class="fn">FIG&nbsp;01</span>Pose-tracking pipeline: torso landmarks become five metrics fed to the model.</figcaption></figure><figure class="fig reveal"><div class="imgwrap"><img src="../images/digital-products/sdof-model.webp" alt="Front and rear single-degree-of-freedom models of the bike." loading="lazy" data-full="../images/digital-products/sdof-model.webp"></div><figcaption><span class="fn">FIG&nbsp;02</span>Front and rear single-degree-of-freedom models of the bike.</figcaption></figure></div><div class="sub"><div class="dim ticked"><span class="lab">The Discovery</span></div></div><div class="prose reveal"><p>Putting the two together produced the central finding. An experienced rider continuously balances the bike with their body: as a trail steepens they shift rearward, keeping a familiar load on the front and rear contact patches — in effect keeping the front and rear suspension responding at the same rhythm. Across riders on different bikes with deliberately different setups, each one moved to a position that produced the <strong>same balanced natural-frequency response</strong>.</p><p>The rider is the missing variable. The setup and the rider's body act as one system, and a good setup is simply one the rider can keep in balance across the trails they actually ride.</p></div><div class="figs two"><figure class="fig reveal"><div class="imgwrap"><img src="../images/digital-products/cg-across-gradients.webp" alt="Rider center-of-gravity position across 5%, 30%, and 42% gradients." loading="lazy" data-full="../images/digital-products/cg-across-gradients.webp"></div><figcaption><span class="fn">FIG&nbsp;03</span>Rider center-of-gravity position across 5%, 30%, and 42% gradients.</figcaption></figure><figure class="fig reveal"><div class="imgwrap"><img src="../images/digital-products/balanced-response.webp" alt="Settled riding position converging on a balanced front/rear response." loading="lazy" data-full="../images/digital-products/balanced-response.webp"></div><figcaption><span class="fn">FIG&nbsp;04</span>Settled riding position converging on a balanced front/rear response.</figcaption></figure></div><div class="sub"><div class="dim ticked"><span class="lab">How It&#x27;s Measured</span></div></div><div class="prose reveal"><p>A <strong>random-forest regressor</strong> predicts rear-wheel bias and rider-system CG height from the five torso metrics, calibrated against a pair of wheel scales, reaching coefficients of determination of <strong>0.9 to 0.95</strong>. A multi-rider trail study across three trails of very different gradient (4.5%, 12.5%, and 42%) confirmed the behavior repeatedly. As far as I'm aware, this is the first time this rider behavior has been measured directly and tied to a working setup model — packaged in a MATLAB App Designer tool.</p></div><div class="figs one"><figure class="fig reveal"><div class="imgwrap"><img src="../images/digital-products/setup-application.webp" alt="The Set-Up Application: the SDOF model behind an engineer-facing tool." loading="lazy" data-full="../images/digital-products/setup-application.webp"></div><figcaption><span class="fn">FIG&nbsp;05</span>The Set-Up Application: the SDOF model behind an engineer-facing tool.</figcaption></figure></div><div class="prose reveal"><p>The work was written up as a formal engineering paper — <em>A Single-Degree-of-Freedom Model and Computer-Vision Methodology for Mountain Bicycle Suspension Set-Up</em> — and presented internally. The full paper is linked above.</p></div>
+    <nav class="pnav"><a class="prev" href="data-acquisition.html"><span class="d">← Prev</span>Data Acquisition</a><a class="next" href="van-build.html"><span class="d">Next →</span>Net-Zero Sprinter — Master&#x27;s Thesis</a></nav>
+  </div>
+</main>
+<footer><div class="wrap">
+  <div>
+    <div class="who">Keith Christman</div>
+    <div class="meta">Mechanical &amp; Mechatronics Engineer</div>
+  </div>
+  <nav class="links">
+    <a href="../index.html#work">Work</a>
+    <a href="../about.html">About</a>
+    <a href="mailto:keithschristman@gmail.com">Email</a>
+    <a href="https://www.linkedin.com/in/keith-christman-300a68103">LinkedIn</a>
+  </nav>
+  <div class="meta">© <span id="yr"></span> Keith Christman</div>
+</div></footer>
+<div class="lb" id="lb" role="dialog" aria-modal="true" aria-label="Image viewer">
+  <button class="x" id="lbx" aria-label="Close">CLOSE ✕</button>
+  <img id="lbimg" alt="">
+</div>
+<script src="../js/main.js"></script>
+</body></html>
