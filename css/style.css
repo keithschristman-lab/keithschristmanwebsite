@@ -227,6 +227,24 @@ section{ position:relative; }
   transition:background .25s var(--ease), color .25s var(--ease); }
 .dl:hover{ background:var(--ink); color:var(--surface); }
 .dl svg{ width:15px; height:15px; }
+.actions{ display:flex; flex-wrap:wrap; gap:12px; margin-top:26px; }
+.actions .dl{ margin-top:0; }
+
+/* video + youtube share the framed-plate look but go edge-to-edge on black */
+figure.fig.media .imgwrap,
+figure.fig.embed .imgwrap{ padding:0; background:#0c0d10; }
+figure.fig.media video{ display:block; width:auto; max-width:100%; height:auto;
+  max-height:72vh; margin:0 auto; background:#0c0d10; border:0; }
+figure.fig.embed .frame{ position:relative; width:100%; aspect-ratio:16/9; }
+figure.fig.embed iframe{ position:absolute; inset:0; width:100%; height:100%; border:0; }
+
+/* image-less project card: a quiet graphite plate with a mono label */
+.card .shot.ph{ display:flex; align-items:center; justify-content:center;
+  background:linear-gradient(135deg,#2a2e35,#15171c); position:relative; }
+.card .shot.ph .lab{ font-family:var(--f-mono); font-size:.82rem; letter-spacing:.24em;
+  text-transform:uppercase; color:#cfd3da; text-align:center; }
+.card .shot.ph::after{ content:""; position:absolute; inset:14px;
+  border:1px solid rgba(255,255,255,.14); }
 
 /* prose blocks within project pages */
 .prose{ max-width:68ch; }

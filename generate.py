@@ -7,7 +7,8 @@ import os, html
 OUT = os.path.dirname(os.path.abspath(__file__))
 
 SITE = "Keith Christman"
-ROLE = "Mechanical & Mechatronics Engineer"
+ROLE = "Mechanical Engineer"
+EYEBROW = "Mechanical Engineer (on paper)"  # playful hero line only
 # Contact placeholders — Keith edits these (see README).
 EMAIL = "keithschristman@gmail.com"
 LINKEDIN = "https://www.linkedin.com/in/keith-christman-300a68103"
@@ -20,10 +21,9 @@ PROJECTS = [
    hero="4-1.webp",
    oneliner="Dropper seatposts taken from free-body diagram to mass production — every part iterated to shed grams without losing strength.",
    chips=["96 PARTS","109 PG · 2D","8 MO → POC","CONCEPT→PRODUCTION"],
-   lede="Two telescoping dropper-seatpost programs, each carried from first sketch to a "
-        "fully detailed, manufacturable assembly. The work is the unglamorous core of "
-        "mechanical design: load cases, tolerance stacks, and hundreds of detailed parts "
-        "that all have to fit, seal, and survive.",
+   lede="I engineered two production dropper-post products, from first sketch to 100k units "
+        "a year. The work is predominantly machine design: load cases, tolerance stacks, and "
+        "hundreds of detailed parts that all have to fit, seal, and survive.",
    blocks=[
      dict(type="prose", html=(
        "<p>The 34.9 Command Post was designed from concept to mass production. It started "
@@ -55,10 +55,9 @@ PROJECTS = [
      ]),
      dict(type="sub", label="Dropper Post — WU LT"),
      dict(type="prose", html=(
-       "<p>A second dropper-post design worked out in full internal detail. The cross-sections "
-       "below show the sealing, bushing, and actuation stack-up through the length of the "
-       "post — the geometry that determines how smoothly it travels and how well it holds "
-       "position under load.</p>")),
+       "<p>The WU LT dropper post introduced another degree of articulation as the post "
+       "changed travel. The cross-sections below show the sealing, bushing, and most of the "
+       "parts. This one was a fun challenge.</p>")),
      dict(type="figs", layout="two", items=[
        ("full-assembly.webp","Full assembly (CAD).",""),
        ("full-assembly-cross-section.webp","Full-assembly cross-section.",""),
@@ -81,10 +80,9 @@ PROJECTS = [
    hero="20150615_-brakethrough-media_a22y3850.webp",
    oneliner="Carbon wheelsets and structures from napkin sketch to molded prototype — plus an in-house process for cure-cycle hole piercing and a cross-section optimized for impact.",
    chips=["LAYUP → CURE","SILICONE MANDRELS","DOE-DRIVEN","1ST-PRINCIPLES"],
-   lede="Designing and building structural carbon parts end to end: tooling, layup, cure, "
-        "and the test data that closes the loop. The thread running through this work is "
-        "treating composites as something you can analyze and optimize from first "
-        "principles, not just lay up and hope.",
+   lede="I designed and built structural carbon parts end to end: tooling, layup, cure time "
+        "and temp. We treated composites as something you can analyze and optimize from first "
+        "principles, not just lay up and hope &mdash; but sometimes that accuracy eludes you.",
    blocks=[
      dict(type="prose", html=(
        "<p>Starting from napkin sketches and moving to 3D CAD, the goal each time was a "
@@ -146,6 +144,8 @@ PROJECTS = [
    hero="front.webp",
    oneliner="A linear electromagnetic transducer for harvesting energy from suspension motion — built, instrumented on the trail, and honestly assessed against its theoretical limit.",
    chips=["HALLBACH ARRAY","0.61 T PEAK","FEMM + MATLAB","TRAIL-VALIDATED"],
+   links=[("View the patent — US 2024/0229892 A1",
+           "https://patents.google.com/patent/US20240229892A1/en")],
    lede="The LET (Linear Electromagnetic Transducer) was a research program asking a simple "
         "question: can the motion a mountain-bike suspension already dissipates be turned "
         "into useful electrical power? Two prototype generations took it from proof of "
@@ -197,40 +197,10 @@ PROJECTS = [
        ("energy.webp","Upper bound: energy the damper already dissipates over a run.",""),
        ("concl.webp","Theoretical vs. measured energy across configurations.",""),
      ]),
-   ],
- ),
-
- dict(
-   slug="data-acquisition", num="04", cat="Data Acquisition",
-   imgdir="data-acquisition",
-   hero="5.webp",
-   oneliner="A compact, purpose-built data logger for ride dynamics — custom PCB, onboard charging, and a quick-snap mount, designed board-up.",
-   chips=["CUSTOM PCB","TEENSY","Li-ION CHARGING","6 DIG · 2 ANALOG"],
-   lede="To get trustworthy suspension and ride-dynamics data you need a logger that fits the "
-        "bike and the problem. So I designed one from the board up — the same DAQ that "
-        "captured the data behind the LET and suspension work.",
-   blocks=[
-     dict(type="prose", html=(
-       "<p>The logger is built around a <strong>Teensy soldered to a custom PCB</strong>, with "
-       "a designed-in Li-ion charging circuit. It carries a 3-axis accelerometer and 3-axis "
-       "gyroscope, <strong>six digital and two analog channels</strong>, and external channels "
-       "for logging signals like a shaft-displacement potentiometer for fork position. A "
-       "quick-snap mount makes it a full-frame, grab-and-go instrument.</p>")),
-     dict(type="figs", layout="two", items=[
-       ("pcb.webp","Custom PCB layout — 61.5 mm board, 'Christman Technologies'.",""),
-       ("3.webp","Populated board.","cover"),
-     ]),
-     dict(type="figs", layout="two", items=[
-       ("4.webp","Assembled logger with battery in a printed enclosure.","cover"),
-       ("5.webp","Finished unit and quick-snap mount.","cover"),
-     ]),
-     dict(type="figs", layout="three", items=[
-       ("fork1.webp","Mounted at the fork.","cover"),
-       ("onbike1.webp","On the frame.","cover"),
-       ("onbike2.webp","Full-frame implementation on the test bike.","cover"),
-     ]),
-     dict(type="figs", layout="one", items=[
-       ("troubleshooting.webp","Bench validation — scope, meter, and the board under test.","cover"),
+     dict(type="sub", label="Slow-Motion Tests"),
+     dict(type="video", layout="two", items=[
+       ("let1-slomo.mp4","let1-poster.webp","LET 1 on the dyno — slow-motion."),
+       ("let2-slomo.mp4","let2-poster.webp","LET 2 on the dyno — slow-motion."),
      ]),
    ],
  ),
@@ -245,7 +215,6 @@ PROJECTS = [
         "something you can define, measure, and reproduce. It pairs a mechanical model of "
         "the bike with an AI vision system that reads the rider — and the two together "
         "produced a result I believe is new to the industry.",
-   download=dict(label="Read the white paper (PDF)", file="suspension-setup-white-paper.pdf"),
    blocks=[
      dict(type="prose", html=(
        "<p>For decades, setting up a mountain bike's suspension has been guided by sag charts "
@@ -261,37 +230,89 @@ PROJECTS = [
        ("cv-pose-tracking.webp","Pose-tracking pipeline: torso landmarks become five metrics fed to the model.",""),
        ("sdof-model.webp","Front and rear single-degree-of-freedom models of the bike.",""),
      ]),
-     dict(type="sub", label="The Discovery"),
+     dict(type="sub", label="Executive Summary"),
      dict(type="prose", html=(
-       "<p>Putting the two together produced the central finding. An experienced rider "
-       "continuously balances the bike with their body: as a trail steepens they shift "
-       "rearward, keeping a familiar load on the front and rear contact patches — in effect "
-       "keeping the front and rear suspension responding at the same rhythm. Across riders "
-       "on different bikes with deliberately different setups, each one moved to a position "
-       "that produced the <strong>same balanced natural-frequency response</strong>.</p>"
-       "<p>The rider is the missing variable. The setup and the rider's body act as one "
-       "system, and a good setup is simply one the rider can keep in balance across the "
-       "trails they actually ride.</p>")),
+       "<p>For decades, setting up a mountain bike's suspension has been guided by sag targets "
+       "and feel. A rider bounces around the parking lot, consults a pressure chart, turns a "
+       "few dials, and decides whether it feels right. It is an opinion rather than an informed "
+       "decision. Engineers at FOX obsess about delivering the highest-performing products but "
+       "lack a rigorous way of knowing if the end customer is getting that performance.</p>"
+       "<p>The project began with a leadership question: we deliver a gold-level product to the "
+       "customer, but how do we make sure every customer is riding it to its highest potential? "
+       "It set out to answer what an ideal setup is, and why ideal can vary so much from rider "
+       "to rider. We answer the question with simulation and data, and it has produced a result "
+       "we believe is new to the industry.</p>"
+       "<p>We built two things. The first is a software model that simulates how any FOX fork "
+       "and shock will behave on any bike, for any rider — how firm it is, how quickly it "
+       "settles, and how well the front and rear are matched to each other. The second is a "
+       "measurement system built around a GoPro camera and pose-tracking AI that determines, "
+       "frame by frame, what a rider's weight distribution (center of gravity) is while they "
+       "ride.</p>"
+       "<p>Putting the two together produced the central discovery of the project. An "
+       "experienced rider is continuously balancing the response of the bike with their body. "
+       "As a trail steepens, the rider shifts their weight rearward, keeping a familiar amount "
+       "of weight on the front and rear tire contact patches — in effect keeping the front and "
+       "rear system responding at the same rhythm. Take two riders descending the same trail on "
+       "different bikes, set up differently and riding in visibly different positions: each "
+       "moved their body to a different place, but for their unique setups produced the same "
+       "balanced response. We have duplicated this across multiple setups and bikes, and are "
+       "confident enough now to say the goal of an ideal setup is a balanced natural frequency, "
+       "front and rear.</p>"
+       "<p>The takeaway is that the rider is the missing variable. The setup and the rider's "
+       "body act as a mutual system, and a good setup is simply one the rider can keep in "
+       "balance across the trails they actually ride. That ideal feeling, from rider to rider, "
+       "is balance — and balance is something we can define, measure, and offer to riders with "
+       "different riding-position habits.</p>"
+       "<p>As far as we are aware, this is the first time this rider behavior has been measured "
+       "directly and tied to a working setup model. It opens up a physics-based definition of "
+       "an ideal setup we can stand behind, a way to capture feel as metrics and reproduce it "
+       "on any other bike, and a path to genuinely personalized setups from a few simple "
+       "questions. This summary conveys what was accomplished and why it matters; the full "
+       "result was written up as a formal engineering paper for a technical audience.</p>")),
+     dict(type="sub", label="What the Rider Does"),
      dict(type="figs", layout="two", items=[
        ("cg-across-gradients.webp","Rider center-of-gravity position across 5%, 30%, and 42% gradients.",""),
        ("balanced-response.webp","Settled riding position converging on a balanced front/rear response.",""),
      ]),
-     dict(type="sub", label="How It's Measured"),
+     dict(type="sub", label="Set-Up Hardware"),
      dict(type="prose", html=(
-       "<p>A <strong>random-forest regressor</strong> predicts rear-wheel bias and "
-       "rider-system CG height from the five torso metrics, calibrated against a pair of "
-       "wheel scales, reaching coefficients of determination of <strong>0.9 to 0.95</strong>. "
-       "A multi-rider trail study across three trails of very different gradient "
-       "(4.5%, 12.5%, and 42%) confirmed the behavior repeatedly. As far as I'm aware, this "
-       "is the first time this rider behavior has been measured directly and tied to a working "
-       "setup model — packaged in a MATLAB App Designer tool.</p>")),
+       "<p>To anchor the model in ground truth, rider center of gravity is measured directly. "
+       "The bike sits on a pair of wheel scales — a custom load-cell platform built around a "
+       "microcontroller — while the rider holds riding positions, and the rig can be tilted to "
+       "simulate trail gradient. A GoPro on the bars captures the rider's pose at the same time, "
+       "so the vision-derived torso metrics can be calibrated against the real weight split "
+       "measured under each wheel. It is the bridge between what the camera sees and what the "
+       "tires actually feel.</p>")),
+     dict(type="figs", layout="two", items=[
+       ("rider-on-scales.webp","Rider on the wheel scales, rig tilted to simulate gradient.","cover"),
+       ("bike-on-scales.webp","Bike on the scale platforms with the GoPro capture setup.","cover"),
+     ]),
+     dict(type="figs", layout="two", items=[
+       ("gopro-on-bike.webp","GoPro bar mount — the rider-facing pose capture.","cover"),
+       ("scale-hardware-build.webp","The custom wheel-scale build: load cells and microcontroller.",""),
+     ]),
+     dict(type="sub", label="Bringing It Together"),
+     dict(type="prose", html=(
+       "<p>The model, the hardware, and the rider data come together in a single engineer-facing "
+       "workflow. You start by entering the rider and bike — weight, the suspension fitted, and "
+       "the bike's leverage curve. From the spring settings the tool computes a wheel-rate plot "
+       "and reads off a few communication metrics: how the front wheel rate compares to the rear "
+       "(a proxy for body position and gradient preference), wheel sag, and bottom-out ratios. "
+       "The rider's clicker settings then generate a theoretical damper curve overlaid on swept "
+       "dyno data, expressed as percent of critical damping so feel can be compared across "
+       "riders and bikes.</p>"
+       "<p>A time-domain view checks whether the front and rear settle at a balanced natural "
+       "frequency for a representative gradient. Finally, the rider's measured center-of-gravity "
+       "habits — captured from the scales and the GoPro — are saved as a rider profile, so a "
+       "setup a rider already loves can be reproduced on a completely different bike, or used to "
+       "solve for new settings from scratch. The result is setup guidance grounded in physics "
+       "and the rider's own behavior rather than a generic chart.</p>")),
      dict(type="figs", layout="one", items=[
        ("setup-application.webp","The Set-Up Application: the SDOF model behind an engineer-facing tool.",""),
      ]),
-     dict(type="prose", html=(
-       "<p>The work was written up as a formal engineering paper — <em>A Single-Degree-of-"
-       "Freedom Model and Computer-Vision Methodology for Mountain Bicycle Suspension "
-       "Set-Up</em> — and presented internally. The full paper is linked above.</p>")),
+     dict(type="sub", label="In the Field"),
+     dict(type="youtube", id="EdbJla44XeI",
+          caption="Using the set-up tools with athletes."),
    ],
  ),
 
@@ -343,9 +364,39 @@ PROJECTS = [
      ]),
    ],
  ),
+
+ dict(
+   slug="tesla-uber", num="07", cat="Tesla & Uber",
+   imgdir=None, hero=None, ph_label="Tesla · Uber",
+   oneliner="High-voltage connector design for Tesla's Megapack, and power-electronics thermal, wheel, and suspension work for Uber's micromobility e-bikes and e-scooters.",
+   chips=["TESLA MEGAPACK","HV CONNECTORS","E-MOBILITY THERMAL","WHEEL & SUSPENSION"],
+   lede="Two chapters in high-volume electric mobility — high-voltage connector design at "
+        "Tesla, and power-electronics thermal design, wheel design, and suspension concepts "
+        "for Uber's micromobility e-bikes and e-scooters.",
+   blocks=[
+     dict(type="sub", label="Tesla — Megapack"),
+     dict(type="prose", html=(
+       "<p>At Tesla I designed <strong>high-voltage connectors</strong> for the Megapack, the "
+       "utility-scale battery storage system. The work sits right at the mechanical/electrical "
+       "boundary: connectors that have to carry serious current, survive their environment, and "
+       "go together reliably at production volume.</p>")),
+     dict(type="sub", label="Uber — Micromobility"),
+     dict(type="prose", html=(
+       "<p>With Uber's micromobility group I worked across the e-bike and e-scooter platforms: "
+       "<strong>thermal design for the power electronics</strong>, <strong>bicycle-wheel "
+       "design</strong> for the micromobility e-bike, and early <strong>suspension "
+       "concepts</strong> for a commuter e-bike. The common thread is packaging real mechanical "
+       "and thermal engineering into products built to be ridden hard by the public and "
+       "maintained at fleet scale.</p>")),
+   ],
+ ),
 ]
 
 BYSLUG = {p["slug"]: p for p in PROJECTS}
+# Keep the NN labels and the hero count in sync with the actual list.
+for _i, _p in enumerate(PROJECTS):
+    _p["num"] = f"{_i+1:02d}"
+NPROJ = len(PROJECTS)
 
 # ---------------------------------------------------------------- helpers ----
 def esc(s): return html.escape(s, quote=True)
@@ -429,9 +480,15 @@ def render_index():
     p = ""
     cards = ""
     for pr in PROJECTS:
+        if pr.get("hero"):
+            shot = (f'<div class="shot"><img src="images/{pr["imgdir"]}/{pr["hero"]}" '
+                    f'alt="{esc(pr["cat"])}" loading="lazy"></div>')
+        else:
+            shot = (f'<div class="shot ph"><span class="lab">'
+                    f'{esc(pr.get("ph_label", pr["cat"]))}</span></div>')
         cards += f"""
       <a class="card reveal" href="projects/{pr['slug']}.html">
-        <div class="shot"><img src="images/{pr['imgdir']}/{pr['hero']}" alt="{esc(pr['cat'])}" loading="lazy"></div>
+        {shot}
         <div class="body">
           <span class="tag"><span class="n">{esc(pr['num'])}</span> / {esc(pr['cat'])}</span>
           <h3>{esc(pr['cat'])}</h3>
@@ -444,21 +501,21 @@ def render_index():
                 "mechatronics, data acquisition, and ride-dynamics research.") + nav(p,'home') + f"""
 <main>
   <section class="hero"><div class="wrap">
-    <span class="eyebrow">{esc(ROLE)}</span>
+    <span class="eyebrow">{esc(EYEBROW)}</span>
     <h1>Keith<span class="l2">Christman</span></h1>
-    <p class="thesis">I design mechanical and mechatronic systems for ride dynamics —
+    <p class="thesis">I&rsquo;ve designed mechanical, electrical and digital products &mdash;
       from production dropper posts and carbon wheelsets to energy-harvesting transducers,
-      custom data loggers, and the models that tie them together.</p>
+      custom data loggers, and the physics models that tie them together.</p>
     <div class="titleblock">
-      <div class="cell"><div class="k">Discipline</div><div class="v">Mechanical · Mechatronics</div></div>
-      <div class="cell"><div class="k">Focus</div><div class="v">Ride Dynamics &amp; Suspension</div></div>
-      <div class="cell"><div class="k">Methods</div><div class="v">CAD · FEA · MATLAB · Test</div></div>
-      <div class="cell"><div class="k">Projects</div><div class="v">06 Selected</div></div>
+      <div class="cell"><div class="k">Discipline</div><div class="v">Mechanical, Electrical &amp; Digital</div></div>
+      <div class="cell"><div class="k">Current Focus</div><div class="v">Ride Dynamics &amp; Suspension Technology</div></div>
+      <div class="cell"><div class="k">Methods</div><div class="v">MATLAB &amp; Python · CAD · Hand Calcs · FEA</div></div>
+      <div class="cell"><div class="k">Projects</div><div class="v">{NPROJ:02d} Selected</div></div>
     </div>
   </div></section>
 
   <section class="work" id="work"><div class="wrap">
-    {dim('Selected Work','06')}
+    {dim('Selected Work', f'{NPROJ:02d}')}
     <div class="grid">{cards}
     </div>
   </div></section>
@@ -480,6 +537,27 @@ def render_project(pr, i):
                 fignum += 1
                 figs += figure(pr["imgdir"], it, p, fignum)
             body += f'<div class="figs {b["layout"]}">{figs}</div>'
+        elif b["type"]=="video":
+            vids=""
+            for fn, poster, cap in b["items"]:
+                fignum += 1
+                vids += (f'<figure class="fig media reveal">'
+                         f'<div class="imgwrap"><video controls preload="metadata" '
+                         f'playsinline poster="{p}videos/{poster}">'
+                         f'<source src="{p}videos/{fn}" type="video/mp4"></video></div>'
+                         f'<figcaption><span class="fn">FIG&nbsp;{fignum:02d}</span>{esc(cap)}</figcaption>'
+                         f'</figure>')
+            body += f'<div class="figs {b["layout"]}">{vids}</div>'
+        elif b["type"]=="youtube":
+            fignum += 1
+            body += (f'<div class="figs one"><figure class="fig embed reveal">'
+                     f'<div class="imgwrap"><div class="frame">'
+                     f'<iframe src="https://www.youtube-nocookie.com/embed/{b["id"]}" '
+                     f'title="{esc(b.get("caption",""))}" loading="lazy" '
+                     f'allow="accelerometer; clipboard-write; encrypted-media; gyroscope; picture-in-picture" '
+                     f'allowfullscreen></iframe></div></div>'
+                     f'<figcaption><span class="fn">FIG&nbsp;{fignum:02d}</span>{esc(b.get("caption",""))}</figcaption>'
+                     f'</figure></div>')
 
     prev = PROJECTS[i-1] if i>0 else None
     nxt  = PROJECTS[i+1] if i<len(PROJECTS)-1 else None
@@ -489,12 +567,18 @@ def render_project(pr, i):
     if nxt: pnav += f'<a class="next" href="{nxt["slug"]}.html"><span class="d">Next →</span>{esc(nxt["cat"])}</a>'
     pnav += '</nav>'
 
-    dl = ""
+    acts = []
     if pr.get("download"):
         d = pr["download"]
-        dl = (f'<a class="dl" href="{p}docs/{d["file"]}" target="_blank" rel="noopener">'
+        acts.append(f'<a class="dl" href="{p}docs/{d["file"]}" target="_blank" rel="noopener">'
               f'<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">'
               f'<path d="M12 3v12m0 0l-4-4m4 4l4-4M4 21h16"/></svg>{esc(d["label"])}</a>')
+    for label, url in pr.get("links", []):
+        acts.append(f'<a class="dl" href="{esc(url)}" target="_blank" rel="noopener">'
+              f'<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">'
+              f'<path d="M14 3h7v7m0-7L10 14M19 14v5a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V7a2 2 0 0 1 2-2h5"/>'
+              f'</svg>{esc(label)}</a>')
+    dl = f'<div class="actions">{"".join(acts)}</div>' if acts else ""
 
     return head(f"{pr['cat']} — {SITE}", p, pr["oneliner"]) + nav(p,'work') + f"""
 <main>
