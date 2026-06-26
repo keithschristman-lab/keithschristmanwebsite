@@ -20,7 +20,7 @@ PROJECTS = [
    imgdir="mechanical-design",
    hero="4-1.webp",
    oneliner="Dropper seatposts taken from free-body diagram to mass production — every part iterated to shed grams without losing strength.",
-   chips=["96 PARTS","109 PG · 2D","8 MO → POC","CONCEPT→PRODUCTION"],
+   chips=["ADVANCED MACHINE DESIGN","CAD","FEA","PRODUCTION PRODUCTS"],
    lede="I engineered two production dropper-post products, from first sketch to 100k units "
         "a year. The work is predominantly machine design: load cases, tolerance stacks, and "
         "hundreds of detailed parts that all have to fit, seal, and survive.",
@@ -43,7 +43,7 @@ PROJECTS = [
        ("4-3.webp","Assembly section, collapsed.",""),
      ]),
      dict(type="figs", layout="two", items=[
-       ("2.webp","FEA: stress fields used to drive material down where it was not earning its weight.",""),
+       ("2.webp","Hand calcs and supporting FEA.",""),
        ("3.webp","Structural analysis across the load cases.",""),
      ]),
      dict(type="figs", layout="two", items=[
@@ -79,7 +79,7 @@ PROJECTS = [
    imgdir="composites",
    hero="20150615_-brakethrough-media_a22y3850.webp",
    oneliner="Carbon wheelsets and structures from napkin sketch to molded prototype — plus an in-house process for cure-cycle hole piercing and a cross-section optimized for impact.",
-   chips=["LAYUP → CURE","SILICONE MANDRELS","DOE-DRIVEN","1ST-PRINCIPLES"],
+   chips=["LAYUP SCHEDULE DESIGN","COMPOSITE TOOLING DESIGN","MANDREL DESIGN","US-MANUFACTURABLE PROCESSES"],
    lede="I designed and built structural carbon parts end to end: tooling, layup, cure time "
         "and temp. We treated composites as something you can analyze and optimize from first "
         "principles, not just lay up and hope — but sometimes that accuracy eludes you.",
@@ -102,7 +102,7 @@ PROJECTS = [
        ("x7.webp","Mandrel and tooling design (CAD).",""),
      ]),
      dict(type="figs", layout="two", items=[
-       ("img_0260.webp","Carbon frame on the build jig.","cover"),
+       ("img_0260.webp","Prototype frame and fork.","cover"),
        ("mtb.webp","X7 prototype on the bike.","cover"),
      ]),
      dict(type="sub", label="Shear-Out Resistance"),
@@ -173,8 +173,8 @@ PROJECTS = [
        "<p>Beyond the generator itself, the program meant building the supporting hardware: "
        "two-phase rectified coil sets, voltage-divider circuits to keep velocity-dependent "
        "voltage spikes inside a logging window, and enclosures for the battery and logger. "
-       "The device was characterized on a dynamometer and then run on the trail in both "
-       "fork-mounted (position-dependent) and tuned-mass-damper configurations.</p>")),
+       "The device was characterized on a dynamometer and then run on the trail in multiple "
+       "orientations and locations.</p>")),
      dict(type="figs", layout="two", items=[
        ("sdf.webp","Hand-built: coils, soldering, and bench checks.","cover"),
        ("dyno.webp","Dynamometer sine-sweep testing, model correlation.",""),
@@ -192,7 +192,7 @@ PROJECTS = [
        "would take many descents, and a real device (generator, one-way clutch, gearbox, power "
        "electronics) would add roughly <strong>600&nbsp;grams</strong>. For an industry that "
        "fights for 50&nbsp;grams on a crown, the conclusion was that the weight and feel cost "
-       "outweighs the energy — a clear-eyed feasibility call backed by real numbers.</p>")),
+       "outweighs the energy generation benefits.</p>")),
      dict(type="figs", layout="two", items=[
        ("energy.webp","Upper bound: energy the damper already dissipates over a run.",""),
        ("concl.webp","Theoretical vs. measured energy across configurations.",""),
@@ -216,16 +216,6 @@ PROJECTS = [
         "the bike with an AI vision system that reads the rider — and the two together "
         "produced a result I believe is new to the industry.",
    blocks=[
-     dict(type="prose", html=(
-       "<p>For decades, setting up a mountain bike's suspension has been guided by sag charts "
-       "and feel — an opinion rather than an informed decision. This project set out to answer "
-       "what an ideal setup actually <em>is</em>, and why ideal varies so much from rider to "
-       "rider.</p>"
-       "<p>I built two things. The first is a software model that simulates how any fork and "
-       "shock behaves on any bike for any rider — how firm it is, how quickly it settles, and "
-       "how well front and rear are matched. The second is a measurement system built around a "
-       "<strong>GoPro and a pose-tracking AI</strong> that determines, frame by frame, a "
-       "rider's weight distribution and center of gravity while they ride.</p>")),
      dict(type="details", label="Read the executive summary", html=(
        "<p>For decades, setting up a mountain bike's suspension has been guided by sag targets "
        "and feel. A rider bounces around the parking lot, consults a pressure chart, turns a "
@@ -264,26 +254,35 @@ PROJECTS = [
        "on any other bike, and a path to genuinely personalized setups from a few simple "
        "questions. This summary conveys what was accomplished and why it matters; the full "
        "result was written up as a formal engineering paper for a technical audience.</p>")),
+     dict(type="prose", html=(
+       "<p>For decades, setting up a mountain bike's suspension has been guided by sag charts "
+       "and feel — an opinion rather than an informed decision. This project set out to answer "
+       "what an ideal setup actually <em>is</em>, and why ideal varies so much from rider to "
+       "rider.</p>"
+       "<p>I built two things. The first is a software model that simulates how any fork and "
+       "shock behaves on any bike for any rider — how firm it is, how quickly it settles, and "
+       "how well front and rear are matched. The second is a measurement system built around a "
+       "<strong>GoPro and a pose-tracking AI</strong> that determines, frame by frame, a "
+       "rider's weight distribution and center of gravity while they ride.</p>")),
      dict(type="figs", layout="two", items=[
        ("cv-pose-tracking.webp","Pose-tracking pipeline: torso landmarks become five metrics fed to the model.",""),
        ("sdof-model.webp","Front and rear single-degree-of-freedom models of the bike.",""),
      ]),
      dict(type="sub", label="Set-Up Hardware"),
      dict(type="prose", html=(
-       "<p>To anchor the model in ground truth, rider center of gravity is measured directly. "
-       "The bike sits on a pair of wheel scales — a custom load-cell platform built around a "
-       "microcontroller — while the rider holds riding positions, and the rig can be tilted to "
-       "simulate trail gradient. A GoPro on the bars captures the rider's pose at the same time, "
-       "so the vision-derived torso metrics can be calibrated against the real weight split "
-       "measured under each wheel. It is the bridge between what the camera sees and what the "
-       "tires actually feel.</p>")),
+       "<p>The bike and rider center of gravity is measured directly. The bike and rider sit on "
+       "a pair of clamped wheel scales, while the rider moves through all riding positions. A "
+       "GoPro on the bars captures the rider's pose at the same time, so the vision-derived "
+       "torso metrics can be calibrated against the real weight split measured under each wheel. "
+       "The bike is then angled and a similar model is built for the vertical COG values. Some "
+       "secret sauce here.</p>")),
      dict(type="figs", layout="two", items=[
-       ("rider-on-scales.webp","Rider on the wheel scales, rig tilted to simulate gradient.","cover"),
-       ("bike-on-scales.webp","Bike on the scale platforms with the GoPro capture setup.","cover"),
+       ("rider-on-scales.webp","Rider on the wheel scales, rig tilted to simulate gradient.","tile"),
+       ("bike-on-scales.webp","Bike on the scale platforms with the GoPro capture setup.","tile"),
      ]),
      dict(type="figs", layout="two", items=[
-       ("gopro-on-bike.webp","GoPro bar mount — the rider-facing pose capture.","cover"),
-       ("scale-hardware-build.webp","The custom wheel-scale build: load cells and microcontroller.",""),
+       ("gopro-on-bike.webp","GoPro bar mount — the rider-facing pose capture.","tile"),
+       ("scale-hardware-build.webp","The custom wheel-scale build: load cells and microcontroller.","tile"),
      ]),
      dict(type="sub", label="Wheelrates"),
      dict(type="prose", html=(
@@ -315,9 +314,9 @@ PROJECTS = [
      ]),
      dict(type="sub", label="Center of Gravity Tracking"),
      dict(type="prose", html=(
-       "<p>Pose-tracking applied to trail footage recovers the rider's center of gravity frame "
-       "by frame. Aggregated over a run, it becomes the distribution the model is calibrated "
-       "against — turning rider feel into measurable data.</p>")),
+       "<p>Pose-tracking applied to trail footage identifies the rider's center of gravity "
+       "frame by frame. Along with trail gradient, the balance of the bike can be "
+       "optimized.</p>")),
      dict(type="video", layout="one", items=[
        ("cog-trail.mp4","cog-trail-poster.webp","Processed trail footage — center-of-gravity tracking overlay."),
      ]),
@@ -385,9 +384,8 @@ PROJECTS = [
    imgdir=None, hero=None, ph_label="Tesla · Uber",
    oneliner="High-voltage connector design for Tesla's Megapack, and power-electronics thermal, wheel, and suspension work for Uber's micromobility e-bikes and e-scooters.",
    chips=["TESLA MEGAPACK","HV CONNECTORS","E-MOBILITY THERMAL","WHEEL & SUSPENSION"],
-   lede="Two chapters in high-volume electric mobility — high-voltage connector design at "
-        "Tesla, and power-electronics thermal design, wheel design, and suspension concepts "
-        "for Uber's micromobility e-bikes and e-scooters.",
+   lede="High-voltage connector design at Tesla. Power-electronics, thermal design, and "
+        "suspension concepts for Uber's micromobility e-bikes and e-scooters.",
    blocks=[
      dict(type="sub", label="Tesla — Megapack"),
      dict(type="prose", html=(
@@ -479,7 +477,7 @@ def dim(label, num=None, ticked=True):
 
 def figure(imgdir, item, prefix, fignum):
     img, cap, fit = item
-    cls = "fig cover" if fit=="cover" else "fig"
+    cls = {"cover":"fig cover", "tile":"fig cover tile"}.get(fit, "fig")
     src = f"{prefix}images/{imgdir}/{img}"
     return (f'<figure class="{cls} reveal">'
             f'<div class="imgwrap"><img src="{src}" alt="{esc(cap)}" loading="lazy" '
@@ -546,6 +544,8 @@ def render_project(pr, i):
             body += f'<div class="prose reveal">{b["html"]}</div>'
         elif b["type"]=="details":
             body += (f'<details class="exsum reveal"><summary>'
+                     f'<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">'
+                     f'<path d="M6 2h9l4 4v16H6zM14 2v5h5M9 13h7M9 17h7"/></svg>'
                      f'<span class="lbl">{esc(b["label"])}</span>'
                      f'<span class="chev" aria-hidden="true"></span></summary>'
                      f'<div class="prose">{b["html"]}</div></details>')
@@ -674,9 +674,9 @@ def render_about():
 os.makedirs(f"{OUT}/projects", exist_ok=True)
 os.makedirs(f"{OUT}/js", exist_ok=True)
 
-open(f"{OUT}/index.html","w").write(render_index())
-open(f"{OUT}/about.html","w").write(render_about())
+open(f"{OUT}/index.html","w",encoding="utf-8").write(render_index())
+open(f"{OUT}/about.html","w",encoding="utf-8").write(render_about())
 for i,pr in enumerate(PROJECTS):
-    open(f"{OUT}/projects/{pr['slug']}.html","w").write(render_project(pr,i))
+    open(f"{OUT}/projects/{pr['slug']}.html","w",encoding="utf-8").write(render_project(pr,i))
 
 print("Wrote index.html, about.html, and", len(PROJECTS), "project pages.")
