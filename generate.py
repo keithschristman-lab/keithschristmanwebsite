@@ -82,7 +82,7 @@ PROJECTS = [
    chips=["LAYUP → CURE","SILICONE MANDRELS","DOE-DRIVEN","1ST-PRINCIPLES"],
    lede="I designed and built structural carbon parts end to end: tooling, layup, cure time "
         "and temp. We treated composites as something you can analyze and optimize from first "
-        "principles, not just lay up and hope &mdash; but sometimes that accuracy eludes you.",
+        "principles, not just lay up and hope — but sometimes that accuracy eludes you.",
    blocks=[
      dict(type="prose", html=(
        "<p>Starting from napkin sketches and moving to 3D CAD, the goal each time was a "
@@ -95,16 +95,15 @@ PROJECTS = [
      dict(type="sub", label="Layup & Tooling"),
      dict(type="figs", layout="two", items=[
        ("20150615_-brakethrough-media_a22y3850.webp","Layup in progress on the shop floor.  Photo: BrakeThrough Media.","cover"),
-       ("20150615_-brakethrough-media_a22y3885.webp","Prototyping and inspection in the shop.  Photo: BrakeThrough Media.","cover"),
+       ("20150615_-brakethrough-media_a22y3885.webp","The versatile mandrel, bladder and rubber chicken.  Photo: BrakeThrough Media.","cover"),
      ]),
      dict(type="figs", layout="two", items=[
-       ("20150615_-brakethrough-media_a10o6501.webp","A molded composite section in its tooling.  Photo: BrakeThrough Media.","cover"),
+       ("20150615_-brakethrough-media_a10o6501.webp","Mandrel and tooling we designed.","cover"),
        ("x7.webp","Mandrel and tooling design (CAD).",""),
      ]),
-     dict(type="figs", layout="three", items=[
-       ("cutpieces.webp","Silicone-mandrel molded sections.",""),
-       ("1stply.webp","Layup test pieces.",""),
+     dict(type="figs", layout="two", items=[
        ("img_0260.webp","Carbon frame on the build jig.","cover"),
+       ("mtb.webp","X7 prototype on the bike.","cover"),
      ]),
      dict(type="sub", label="Shear-Out Resistance"),
      dict(type="prose", html=(
@@ -112,11 +111,12 @@ PROJECTS = [
        "piercing holes during the <strong>minimum-viscosity point of the cure cycle</strong> "
        "— when the resin is fluid enough to flow around the fibers rather than cutting "
        "through them, leaving a far stronger hole.</p>")),
-     dict(type="figs", layout="two", items=[
+     dict(type="figs", layout="three", items=[
        ("holes.webp","Holes pierced at the minimum-viscosity point of the cure.",""),
        ("holes2.webp","Detail of the pierced hole.",""),
+       ("pullout.webp","Pull-out / shear test fixture.","cover"),
      ]),
-     dict(type="sub", label="Cross-Section Optimization"),
+     dict(type="sub", label="Control SL Wheel Set Design"),
      dict(type="prose", html=(
        "<p>During impact testing, the spoke bed on the previous-generation Control SL failed "
        "under a compressive stress. Rather than simply adding material, I ran a design study: "
@@ -124,16 +124,16 @@ PROJECTS = [
        "<strong>minimum stress at an ideal geometry</strong>, driving higher impact-energy "
        "tolerance without a mass penalty.</p>")),
      dict(type="figs", layout="two", items=[
-       ("stress.webp","Spoke-bed stress as a function of cross-section moment of inertia — the minimum sets the target geometry.",""),
-       ("doe.webp","Design-of-experiments setup and hoop-stiffness derivation.",""),
-     ]),
-     dict(type="figs", layout="two", items=[
        ("controlsl.webp","The wheelset, in production.","cover"),
-       ("mtb.webp","On the bike.","cover"),
+       ("cutpieces.webp","Production rims I designed, cross-sectioned for inspection.",""),
      ]),
      dict(type="figs", layout="two", items=[
-       ("pullout.webp","Pull-out / shear test fixture.","cover"),
-       ("flow.webp","Analysis workflow.",""),
+       ("1stply.webp","First-ply failure inspection.",""),
+       ("stress.webp","Spoke-bed stress vs. cross-section moment of inertia — the minimum sets the target geometry.",""),
+     ]),
+     dict(type="figs", layout="two", items=[
+       ("doe.webp","Model for rim cross-section optimization.",""),
+       ("flow.webp","Model workflow.",""),
      ]),
    ],
  ),
@@ -230,8 +230,7 @@ PROJECTS = [
        ("cv-pose-tracking.webp","Pose-tracking pipeline: torso landmarks become five metrics fed to the model.",""),
        ("sdof-model.webp","Front and rear single-degree-of-freedom models of the bike.",""),
      ]),
-     dict(type="sub", label="Executive Summary"),
-     dict(type="prose", html=(
+     dict(type="details", label="Read the executive summary", html=(
        "<p>For decades, setting up a mountain bike's suspension has been guided by sag targets "
        "and feel. A rider bounces around the parking lot, consults a pressure chart, turns a "
        "few dials, and decides whether it feels right. It is an opinion rather than an informed "
@@ -269,11 +268,6 @@ PROJECTS = [
        "on any other bike, and a path to genuinely personalized setups from a few simple "
        "questions. This summary conveys what was accomplished and why it matters; the full "
        "result was written up as a formal engineering paper for a technical audience.</p>")),
-     dict(type="sub", label="What the Rider Does"),
-     dict(type="figs", layout="two", items=[
-       ("cg-across-gradients.webp","Rider center-of-gravity position across 5%, 30%, and 42% gradients.",""),
-       ("balanced-response.webp","Settled riding position converging on a balanced front/rear response.",""),
-     ]),
      dict(type="sub", label="Set-Up Hardware"),
      dict(type="prose", html=(
        "<p>To anchor the model in ground truth, rider center of gravity is measured directly. "
@@ -291,24 +285,45 @@ PROJECTS = [
        ("gopro-on-bike.webp","GoPro bar mount — the rider-facing pose capture.","cover"),
        ("scale-hardware-build.webp","The custom wheel-scale build: load cells and microcontroller.",""),
      ]),
-     dict(type="sub", label="Bringing It Together"),
+     dict(type="sub", label="Wheelrates"),
      dict(type="prose", html=(
-       "<p>The model, the hardware, and the rider data come together in a single engineer-facing "
-       "workflow. You start by entering the rider and bike — weight, the suspension fitted, and "
-       "the bike's leverage curve. From the spring settings the tool computes a wheel-rate plot "
-       "and reads off a few communication metrics: how the front wheel rate compares to the rear "
-       "(a proxy for body position and gradient preference), wheel sag, and bottom-out ratios. "
-       "The rider's clicker settings then generate a theoretical damper curve overlaid on swept "
-       "dyno data, expressed as percent of critical damping so feel can be compared across "
-       "riders and bikes.</p>"
-       "<p>A time-domain view checks whether the front and rear settle at a balanced natural "
-       "frequency for a representative gradient. Finally, the rider's measured center-of-gravity "
-       "habits — captured from the scales and the GoPro — are saved as a rider profile, so a "
-       "setup a rider already loves can be reproduced on a completely different bike, or used to "
-       "solve for new settings from scratch. The result is setup guidance grounded in physics "
-       "and the rider's own behavior rather than a generic chart.</p>")),
+       "<p>From the spring setup, the tool computes front and rear wheel-rate curves — how the "
+       "force at the contact patch builds through travel — with the sag windows marked. "
+       "Comparing the front and rear curves is how the model reasons about balance.</p>")),
      dict(type="figs", layout="one", items=[
-       ("setup-application.webp","The Set-Up Application: the SDOF model behind an engineer-facing tool.",""),
+       ("wheelrates.webp","Computed front and rear wheel-rate curves with sag windows.",""),
+     ]),
+     dict(type="sub", label="Damping"),
+     dict(type="prose", html=(
+       "<p>The damper model builds force-versus-shaft-speed curves for the fork and shock from "
+       "the rider's clicker settings, swept across the adjuster range so feel can be compared "
+       "consistently from one bike to the next.</p>")),
+     dict(type="figs", layout="one", items=[
+       ("damping.webp","Fork and shock damper force vs. shaft speed across the clicker sweep.",""),
+     ]),
+     dict(type="sub", label="SDOF Time Domain Response"),
+     dict(type="prose", html=(
+       "<p>The time-domain view shows how the front and rear masses settle after an input — the "
+       "goal being a balanced response front to rear. The animations contrast a balanced setup "
+       "on a 45% grade against an unbalanced one on flat ground.</p>")),
+     dict(type="figs", layout="one", items=[
+       ("time-domain-balanced.webp","Balanced front/rear time-domain response.",""),
+     ]),
+     dict(type="video", layout="two", items=[
+       ("cg-balanced.mp4","cg-balanced-poster.webp","Balanced response — 72% rear-wheel bias, 45% grade."),
+       ("cg-unbalanced.mp4","cg-unbalanced-poster.webp","Unbalanced response — 72% rear-wheel bias, 0% grade."),
+     ]),
+     dict(type="sub", label="Center of Gravity Tracking"),
+     dict(type="prose", html=(
+       "<p>Pose-tracking applied to trail footage recovers the rider's center of gravity frame "
+       "by frame. Aggregated over a run, it becomes the distribution the model is calibrated "
+       "against — turning rider feel into measurable data.</p>")),
+     dict(type="video", layout="one", items=[
+       ("cog-trail.mp4","cog-trail-poster.webp","Processed trail footage — center-of-gravity tracking overlay."),
+     ]),
+     dict(type="figs", layout="two", items=[
+       ("cog-histogram.webp","Center-of-gravity distribution over a trail run.",""),
+       ("cog-scatter.webp","Predicted rear-wheel bias vs. CG height, with model confidence.",""),
      ]),
      dict(type="sub", label="In the Field"),
      dict(type="youtube", id="EdbJla44XeI",
@@ -529,6 +544,11 @@ def render_project(pr, i):
     for b in pr["blocks"]:
         if b["type"]=="prose":
             body += f'<div class="prose reveal">{b["html"]}</div>'
+        elif b["type"]=="details":
+            body += (f'<details class="exsum reveal"><summary>'
+                     f'<span class="lbl">{esc(b["label"])}</span>'
+                     f'<span class="chev" aria-hidden="true"></span></summary>'
+                     f'<div class="prose">{b["html"]}</div></details>')
         elif b["type"]=="sub":
             body += f'<div class="sub">{dim(b["label"])}</div>'
         elif b["type"]=="figs":

@@ -230,6 +230,23 @@ section{ position:relative; }
 .actions{ display:flex; flex-wrap:wrap; gap:12px; margin-top:26px; }
 .actions .dl{ margin-top:0; }
 
+/* collapsible block (executive summary) */
+details.exsum{ border:1px solid var(--line); background:var(--surface);
+  margin:8px 0 4px; }
+details.exsum summary{ list-style:none; cursor:pointer; display:flex;
+  align-items:center; justify-content:space-between; gap:14px;
+  padding:15px 18px; font-family:var(--f-mono); font-size:.82rem;
+  letter-spacing:.08em; text-transform:uppercase; color:var(--ink);
+  transition:background .2s var(--ease); }
+details.exsum summary::-webkit-details-marker{ display:none; }
+details.exsum summary:hover{ background:#eef0f2; }
+details.exsum summary .chev{ width:9px; height:9px; border-right:1.5px solid var(--graphite);
+  border-bottom:1.5px solid var(--graphite); transform:rotate(45deg);
+  transition:transform .25s var(--ease); flex:none; }
+details.exsum[open] summary .chev{ transform:rotate(-135deg); }
+details.exsum[open] summary{ border-bottom:1px solid var(--line); }
+details.exsum .prose{ padding:20px 18px 6px; }
+
 /* video + youtube share the framed-plate look but go edge-to-edge on black */
 figure.fig.media .imgwrap,
 figure.fig.embed .imgwrap{ padding:0; background:#0c0d10; }
