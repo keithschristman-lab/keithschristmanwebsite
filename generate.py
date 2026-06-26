@@ -226,10 +226,6 @@ PROJECTS = [
        "how well front and rear are matched. The second is a measurement system built around a "
        "<strong>GoPro and a pose-tracking AI</strong> that determines, frame by frame, a "
        "rider's weight distribution and center of gravity while they ride.</p>")),
-     dict(type="figs", layout="two", items=[
-       ("cv-pose-tracking.webp","Pose-tracking pipeline: torso landmarks become five metrics fed to the model.",""),
-       ("sdof-model.webp","Front and rear single-degree-of-freedom models of the bike.",""),
-     ]),
      dict(type="details", label="Read the executive summary", html=(
        "<p>For decades, setting up a mountain bike's suspension has been guided by sag targets "
        "and feel. A rider bounces around the parking lot, consults a pressure chart, turns a "
@@ -268,6 +264,10 @@ PROJECTS = [
        "on any other bike, and a path to genuinely personalized setups from a few simple "
        "questions. This summary conveys what was accomplished and why it matters; the full "
        "result was written up as a formal engineering paper for a technical audience.</p>")),
+     dict(type="figs", layout="two", items=[
+       ("cv-pose-tracking.webp","Pose-tracking pipeline: torso landmarks become five metrics fed to the model.",""),
+       ("sdof-model.webp","Front and rear single-degree-of-freedom models of the bike.",""),
+     ]),
      dict(type="sub", label="Set-Up Hardware"),
      dict(type="prose", html=(
        "<p>To anchor the model in ground truth, rider center of gravity is measured directly. "
